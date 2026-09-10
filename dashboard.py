@@ -14,31 +14,51 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Vector SVGs
+# Custom Vector SVGs
 SVG_BOLT = """<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>"""
-SVG_GEAR = """<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A0AEC0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>"""
-SVG_LOCK = """<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>"""
+SVG_GEAR = """<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>"""
+SVG_LOCK = """<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>"""
 SVG_PULSE = """<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>"""
 
-# Custom CSS Styling (High Contrast Visibility)
+# High-Contrast CSS Enforcement
 st.markdown("""
     <style>
-    .stApp { background-color: #0B0E14; }
+    /* Dark Canvas Background */
+    .stApp, [data-testid="stSidebar"] {
+        background-color: #0D1117 !important;
+    }
     
-    /* Global Text Color Overrides */
-    h1, h2, h3, h4, h5, h6, p, label, div, span {
+    /* Universal Text Color Overrides */
+    p, label, span, h1, h2, h3, h4, h5, h6, div {
         color: #FFFFFF !important;
     }
-    
-    /* SCADA Metric Cards */
+
+    /* Input Fields & Text Boxes Visibility */
+    input, stTextInput>div>div>input {
+        color: #FFFFFF !important;
+        background-color: #161B22 !important;
+        border: 1px solid #30363D !important;
+    }
+
+    /* Native Streamlit Metric Cards */
+    [data-testid="stMetricValue"] {
+        color: #00E5FF !important;
+        font-weight: bold !important;
+    }
+    [data-testid="stMetricLabel"] {
+        color: #8B949E !important;
+        font-weight: 600 !important;
+    }
+
+    /* SCADA Metric Containers */
     .scada-metric-box {
-        background-color: #1E2230;
-        border: 1px solid #2E3440;
-        border-radius: 8px;
-        padding: 18px;
+        background-color: #161B22;
+        border: 1px solid #30363D;
+        border-radius: 6px;
+        padding: 16px;
     }
     .metric-title {
-        color: #A0AEC0 !important;
+        color: #8B949E !important;
         font-size: 0.8rem;
         font-weight: 700;
         text-transform: uppercase;
@@ -46,28 +66,26 @@ st.markdown("""
     }
     .metric-value-text {
         color: #FFFFFF !important;
-        font-size: 2rem;
+        font-size: 1.9rem;
         font-weight: 800;
-        font-family: 'JetBrains Mono', 'Courier New', monospace;
+        font-family: 'Courier New', monospace;
         margin-top: 4px;
     }
-    
-    /* Status Badges */
+
+    /* Badges */
     .status-pill-normal {
-        display: inline-block;
         background-color: rgba(0, 229, 255, 0.15);
         color: #00E5FF !important;
-        border: 1px solid rgba(0, 229, 255, 0.4);
+        border: 1px solid #00E5FF;
         padding: 6px 14px;
         border-radius: 4px;
         font-size: 0.8rem;
         font-weight: 700;
     }
     .status-pill-critical {
-        display: inline-block;
         background-color: rgba(255, 46, 147, 0.2);
         color: #FF2E93 !important;
-        border: 1px solid rgba(255, 46, 147, 0.5);
+        border: 1px solid #FF2E93;
         padding: 6px 14px;
         border-radius: 4px;
         font-size: 0.8rem;
@@ -76,7 +94,6 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Authentication Verification Function
 def make_hash(password):
     return hashlib.sha256(str.encode(password)).hexdigest()
 
@@ -93,15 +110,15 @@ if "history" not in st.session_state:
     st.session_state.history = pd.DataFrame(columns=["timestamp", "power_kw", "voltage", "current_amps", "temperature_c", "anomaly_detected"])
 
 # -----------------------------------------------------------------------------
-# 1. UNAUTHENTICATED STATE: Render LOGIN SCREEN ONLY
+# 1. LOGIN SCREEN ONLY (Unauthenticated)
 # -----------------------------------------------------------------------------
 if not st.session_state.authenticated:
     _, center_col, _ = st.columns([1, 1.2, 1])
     with center_col:
         st.markdown("<br><br><br>", unsafe_allow_html=True)
         st.markdown(f'<div style="text-align:center;">{SVG_LOCK}</div>', unsafe_allow_html=True)
-        st.markdown('<h2 style="text-align:center; margin-bottom:5px;">System Authorization</h2>', unsafe_allow_html=True)
-        st.markdown('<p style="text-align:center; color:#A0AEC0 !important; font-size:0.9rem;">AI Industrial Energy Optimization Platform</p>', unsafe_allow_html=True)
+        st.markdown('<h2 style="text-align:center; color:#FFFFFF !important; margin-bottom:5px;">System Authorization</h2>', unsafe_allow_html=True)
+        st.markdown('<p style="text-align:center; color:#8B949E !important; font-size:0.9rem;">AI Industrial Energy Optimization Platform</p>', unsafe_allow_html=True)
         st.markdown("<br>", unsafe_allow_html=True)
         
         with st.form("login_form"):
@@ -116,18 +133,18 @@ if not st.session_state.authenticated:
                     st.session_state.username = username
                     st.rerun()
                 else:
-                    st.error("Invalid Credentials. Please check Operator ID or Access Key.")
+                    st.error("Invalid Operator ID or Access Key.")
                     
-        st.markdown('<p style="text-align:center; color:#A0AEC0 !important; font-size:0.8rem;">Default Credentials: <b>admin</b> / <b>admin123</b></p>', unsafe_allow_html=True)
+        st.markdown('<p style="text-align:center; color:#8B949E !important; font-size:0.85rem;">Default Login: <b style="color:#00E5FF !important;">admin</b> / <b style="color:#00E5FF !important;">admin123</b></p>', unsafe_allow_html=True)
 
 # -----------------------------------------------------------------------------
-# 2. AUTHENTICATED STATE: Render DASHBOARD SCREEN ONLY
+# 2. DASHBOARD SCREEN ONLY (Authenticated)
 # -----------------------------------------------------------------------------
 else:
     head_col1, head_col2 = st.columns([3, 1])
     with head_col1:
-        st.markdown(f'<div style="display:flex; align-items:center; gap:12px;">{SVG_BOLT} <h1 style="margin:0; font-size:1.8rem;">AI Industrial Energy Optimization Platform</h1></div>', unsafe_allow_html=True)
-        st.markdown(f'<p style="color:#A0AEC0 !important; margin-top:4px;">Authenticated Operator: <b>{st.session_state.username.upper()}</b> | Substation: <b>01-ALPHA</b></p>', unsafe_allow_html=True)
+        st.markdown(f'<div style="display:flex; align-items:center; gap:12px;">{SVG_BOLT} <h1 style="margin:0; font-size:1.8rem; color:#FFFFFF !important;">AI Industrial Energy Optimization Platform</h1></div>', unsafe_allow_html=True)
+        st.markdown(f'<p style="color:#8B949E !important; margin-top:4px;">Authenticated Operator: <b style="color:#00E5FF !important;">{st.session_state.username.upper()}</b> | Substation: <b>01-ALPHA</b></p>', unsafe_allow_html=True)
 
     with head_col2:
         st.markdown('<div style="text-align: right; margin-top:10px;"><span class="status-pill-normal">SYSTEM ONLINE</span></div>', unsafe_allow_html=True)
@@ -136,7 +153,7 @@ else:
 
     # Sidebar Controls
     with st.sidebar:
-        st.markdown(f'<div style="display:flex; align-items:center; gap:8px;">{SVG_GEAR} <h3 style="margin:0; font-size:1.1rem;">Control Console</h3></div>', unsafe_allow_html=True)
+        st.markdown(f'<div style="display:flex; align-items:center; gap:8px;">{SVG_GEAR} <h3 style="margin:0; font-size:1.1rem; color:#FFFFFF !important;">Control Console</h3></div>', unsafe_allow_html=True)
         st.markdown(" ")
         auto_refresh = st.toggle("Live Telemetry Ingestion", value=True)
         refresh_rate = st.slider("Stream Interval (seconds)", 1, 5, 2)
@@ -183,11 +200,11 @@ else:
 
         m1, m2, m3, m4 = st.columns(4)
         with m1:
-            st.markdown(f'<div class="scada-metric-box"><div class="metric-title">Active Power Load</div><div class="metric-value-text">{p_kw:.1f} <span style="font-size:1rem; color:#A0AEC0;">kW</span></div></div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="scada-metric-box"><div class="metric-title">Active Power Load</div><div class="metric-value-text">{p_kw:.1f} <span style="font-size:1rem; color:#8B949E !important;">kW</span></div></div>', unsafe_allow_html=True)
         with m2:
-            st.markdown(f'<div class="scada-metric-box"><div class="metric-title">Grid Bus Voltage</div><div class="metric-value-text">{current_data.get("voltage", 0.0):.1f} <span style="font-size:1rem; color:#A0AEC0;">V</span></div></div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="scada-metric-box"><div class="metric-title">Grid Bus Voltage</div><div class="metric-value-text">{current_data.get("voltage", 0.0):.1f} <span style="font-size:1rem; color:#8B949E !important;">V</span></div></div>', unsafe_allow_html=True)
         with m3:
-            st.markdown(f'<div class="scada-metric-box"><div class="metric-title">Motor Temperature</div><div class="metric-value-text">{current_data.get("temperature_c", 0.0):.1f} <span style="font-size:1rem; color:#A0AEC0;">°C</span></div></div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="scada-metric-box"><div class="metric-title">Motor Temperature</div><div class="metric-value-text">{current_data.get("temperature_c", 0.0):.1f} <span style="font-size:1rem; color:#8B949E !important;">°C</span></div></div>', unsafe_allow_html=True)
         with m4:
             status_html = '<span class="status-pill-critical">CRITICAL ANOMALY</span>' if anomaly else '<span class="status-pill-normal">NOMINAL OPERATION</span>'
             st.markdown(f'<div class="scada-metric-box"><div class="metric-title">ML Anomaly Status</div><div style="margin-top:10px;">{status_html}</div></div>', unsafe_allow_html=True)
@@ -197,10 +214,10 @@ else:
         col_chart, col_gauge = st.columns([2, 1])
 
         with col_chart:
-            st.markdown(f'<div style="display:flex; align-items:center; gap:8px;">{SVG_PULSE} <h4 style="margin:0;">Power Telemetry Stream vs Threshold</h4></div>', unsafe_allow_html=True)
+            st.markdown(f'<div style="display:flex; align-items:center; gap:8px;">{SVG_PULSE} <h4 style="margin:0; color:#FFFFFF !important;">Power Telemetry Stream vs Threshold</h4></div>', unsafe_allow_html=True)
             if not st.session_state.history.empty:
                 fig = px.line(st.session_state.history, x="timestamp", y="power_kw", markers=True)
-                fig.add_hline(y=target_power, line_dash="dash", line_color="#FF2E93", annotation_text="Max Capacity")
+                fig.add_hline(y=target_power, line_dash="dash", line_color="#FF2E93", annotation_text="Max Capacity", annotation_font_color="#FF2E93")
                 fig.update_traces(line_color="#00E5FF", line_width=2.5)
                 fig.update_layout(
                     height=340, 
@@ -208,24 +225,24 @@ else:
                     paper_bgcolor="rgba(0,0,0,0)",
                     plot_bgcolor="rgba(0,0,0,0)",
                     font=dict(color="#FFFFFF"),
-                    xaxis=dict(showgrid=True, gridcolor="#2E3440"),
-                    yaxis=dict(showgrid=True, gridcolor="#2E3440")
+                    xaxis=dict(showgrid=True, gridcolor="#30363D", tickfont=dict(color="#FFFFFF")),
+                    yaxis=dict(showgrid=True, gridcolor="#30363D", tickfont=dict(color="#FFFFFF"))
                 )
                 st.plotly_chart(fig, use_container_width=True)
 
         with col_gauge:
-            st.markdown('<h4 style="margin:0;">Active Peak Capacity</h4>', unsafe_allow_html=True)
+            st.markdown('<h4 style="margin:0; color:#FFFFFF !important;">Active Peak Capacity</h4>', unsafe_allow_html=True)
             gauge_fig = go.Figure(go.Indicator(
                 mode="gauge+number",
                 value=p_kw,
                 gauge={
-                    'axis': {'range': [0, 300], 'tickcolor': "#FFFFFF"},
+                    'axis': {'range': [0, 300], 'tickcolor': "#FFFFFF", 'tickfont': {'color': "#FFFFFF"}},
                     'bar': {'color': "#FF2E93" if p_kw > target_power else "#00E5FF"},
-                    'bgcolor': "#1E2230",
-                    'bordercolor': "#2E3440",
+                    'bgcolor': "#161B22",
+                    'bordercolor': "#30363D",
                     'steps': [
-                        {'range': [0, target_power], 'color': "#1E2230"},
-                        {'range': [target_power, 300], 'color': "#3A1E2B"}
+                        {'range': [0, target_power], 'color': "#161B22"},
+                        {'range': [target_power, 300], 'color': "#2A121A"}
                     ],
                     'threshold': {'line': {'color': "#FF2E93", 'width': 3}, 'thickness': 0.8, 'value': target_power}
                 }
@@ -239,7 +256,7 @@ else:
             st.plotly_chart(gauge_fig, use_container_width=True)
 
         st.divider()
-        st.markdown('<h4 style="margin:0;">SciPy LP System Load Distribution</h4>', unsafe_allow_html=True)
+        st.markdown('<h4 style="margin:0; color:#FFFFFF !important;">SciPy LP System Load Distribution</h4>', unsafe_allow_html=True)
         st.markdown(" ")
         if "opt_result" in st.session_state:
             opt = st.session_state.opt_result
