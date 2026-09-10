@@ -6,8 +6,8 @@ import time
 
 st.set_page_config(page_title="Industrial Energy AI", layout="wide")
 st.title(" AI-Powered Industrial Energy Optimization")
-
 API_URL = "http://127.0.0.1:8000"
+
 
 st.sidebar.header("Control Panel")
 auto_refresh = st.sidebar.checkbox("Start Live Telemetry", value=False)
