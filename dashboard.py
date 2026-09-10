@@ -111,8 +111,14 @@ if current_data:
                 "System": ["HVAC", "Machinery", "Auxiliary"],
                 "Allocation (kW)": [opt.get("hvac_kw", 0), opt.get("machinery_kw", 0), opt.get("auxiliary_kw", 0)]
             })
-            # Fixed code:
-fig_pie = px.pie(alloc_df, names="System", values="Allocation (kW)", hole=0.4, template="plotly_dark", color_discrete_sequence=px.colors.sequential.Teal)
+            fig_pie = px.pie(
+    alloc_df, 
+    names="System", 
+    values="Allocation (kW)", 
+    hole=0.4, 
+    template="plotly_dark", 
+    color_discrete_sequence=["#00D4FF", "#0088FF", "#003366"]
+)
 
             st.plotly_chart(fig_pie, use_container_width=True)
             st.caption(f"Est. Cost: **${opt.get('estimated_cost_per_hr', 0)}/hr**")
