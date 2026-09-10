@@ -2,8 +2,8 @@ fastapi
 uvicorn
 streamlit
 scikit-learn
+scipy
 pandas
 numpy
-requests
-scipy
 plotly
+requests
